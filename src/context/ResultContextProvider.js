@@ -8,7 +8,7 @@ export const ResultContextProvider = ({ children }) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [searchTerm, setSearchTerm] = useState("");
 
-	const getResults = async type => {
+	const getResults = async (type) => {
 		setIsLoading(true);
 
 		const response = await fetch(`${baseUrl}${type}`, {
@@ -25,7 +25,7 @@ export const ResultContextProvider = ({ children }) => {
 
 		if (type.includes("/news")) {
 			setResults(data.entries);
-		} else if (type.includes("/images")) {
+		} else if (type.includes("/image")) {
 			setResults(data.image_results);
 		} else {
 			setResults(data.results);

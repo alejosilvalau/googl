@@ -10,7 +10,7 @@ export const Results = () => {
 
 	useEffect(() => {
 		if (searchTerm) {
-			if (location.pathname === "/videos") {
+			if (location.pathname === "/video") {
 				getResults(`/search/q=${searchTerm} videos`);
 			} else {
 				getResults(`${location.pathname}/q=${searchTerm}&num=40`);
@@ -43,7 +43,7 @@ export const Results = () => {
 					))}
 				</div>
 			);
-		case "/images":
+		case "/image":
 			return (
 				<div className='flex flex-wrap justify-center items-center'>
 					{results?.map(({ image, link: { href, title } }, index) => (
@@ -90,7 +90,7 @@ export const Results = () => {
 					))}
 				</div>
 			);
-		case "/videos":
+		case "/video":
 			return (
 				<div className='flex flex-wrap'>
 					{results?.map((video, index) => (
